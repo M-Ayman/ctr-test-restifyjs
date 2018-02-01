@@ -8,8 +8,8 @@ server.get('/', function(req, res, next) {
 });
 
 server.listen(3000, function() {
-  console.log('restifyts version %s running on port 3000', pkg.version);
+  console.log('restifyjs version %s running on port 3000', pkg.version);
   setInterval(function() {
-    console.log('restifyts version %s running on port 3000', pkg.version);
+    console.log('restifyjs version %s running on port 3000', pkg.version);
   }, 10000);
 });
