@@ -22,8 +22,6 @@ RUN apt-get update \
 COPY sshd_config /etc/ssh/
 COPY init_container.sh /bin/
 
-RUN chmod 755 /bin/init_container.sh
-
 # Expose for api
 EXPOSE 2222 3000
 
