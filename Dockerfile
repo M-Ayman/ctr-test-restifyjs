@@ -12,7 +12,17 @@ RUN npm install
 # Copy app
 COPY . /usr/src/app
 
-# Expose for api
-EXPOSE 3000
+# ------------------------
+# SSH Server support
+# ------------------------
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openssh-server \
+    && echo "root:Docker!" | chpasswd
 
-CMD [ "npm", "start" ]
+COPY sshd_config /etc/ssh/
+COPY init_container.sh /bin/
+
+# Expose for api
+EXPOSE 2222 3000
+
+CMD ["/bin/init_container.sh"]
